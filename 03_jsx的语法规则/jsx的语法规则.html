@@ -23,10 +23,19 @@
     <script type="text/babel">
         //模拟数据
         const data='hello,React'
+        const user={
+            firstName:'Harper',
+            lastName:'Perez'
+        }
+        function formatName(user){
+            return user.firstName+''+user.lastName;
+        }
         // 创建虚拟DOM
         let VDOM=(
             <div>
-                 <h1 style={{color:'white',fontSize:'60px'}} className="title">{data}</h1>
+                
+                <h1 style={{color:'white',fontSize:'60px'}} className="title">{data}</h1>
+                 <h1 style={{color:'white',fontSize:'60px'}} className="title">{formatName(user)}</h1>
                  <span>跟标签</span>
                  <input type="text"/>
                  <peiqi>佩奇</peiqi>
