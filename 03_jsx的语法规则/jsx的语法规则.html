@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入react核心库 -->
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <!-- 引入react-dom虚拟库来操作真实DOM -->
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 引入Babel 将jsx转化为js -->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <title>jsx的语法规则</title>
+    <style>
+        .title{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <!-- 创建一个容器 -->
+    <div id="test"></div>
+    <script type="text/babel">
+        //模拟数据
+        const data='hello,React'
+        // 创建虚拟DOM
+        let VDOM=(
+            <div>
+                 <h1 style={{color:'white',fontSize:'60px'}} className="title">{data}</h1>
+                 <span>跟标签</span>
+                 <input type="text"/>
+                 <peiqi>佩奇</peiqi>
+            </div>
+           
+        )
+        // 渲染虚拟DOM到界面
+        ReactDOM.render(VDOM,document.getElementById('test'))
+        /* 
+            JSX的语法规则：
+                1.虚拟DOM不允许出现引号
+                2.标签中混入js表达式，需要用{}
+                3.标签中样式的类名要用className
+                4.标签中内联样式要用style={{color:'white'}}，注意属性名转为小驼峰fontSize
+                5.只能有一个跟标签 div
+                6.标签必须闭合 <input type="text"/>
+                7.关于标签是首字母 <peiqi>佩奇</peiqi>
+                    1.若首字母是小写，那么react就会去寻找与之相同的HTML标签
+                        若找见，直接转为同名的HTML标签
+                        若未找见，则报错
+                    2.若首字母是大写，那么react就会寻找与之同名的组件
+                        若找见，直接使用
+                        若未找见，则报错    
+        */
+    </script>
+</body>
+</html>
