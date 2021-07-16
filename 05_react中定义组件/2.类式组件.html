@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类式组件</title>
+    <!-- 引入react核心库 -->
+    <script src="https://cdn.staticfile.org/react/17.0.0/umd/react.development.js"></script>
+    <!-- 引入react-dom虚拟库来操作真实DOM -->
+    <script src="https://cdn.staticfile.org/react-dom/17.0.0/umd/react-dom.development.js"></script>
+    <!-- 引入Babel 将jsx转化为js -->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <!-- 容器 -->
+    <div id="test"></div>
+
+    <script type="text/babel">
+        // 定义组件（类式组件）
+        class Demo extends React.Component{
+            render(){
+                console.log(this) //组件实例对象
+                return <h2>定义一个类式组件，可用于【复杂】的组件中</h2>
+            }
+        }
+        //渲染组件到页面上
+        ReactDOM.render(<Demo/>,document.getElementById('test'));
+    </script>
+</body>
+</html>
