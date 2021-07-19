@@ -19,11 +19,7 @@
     <script type="text/babel">
         // 定义组件（类式组件）
         class Weather extends React.Component{
-            constructor(props){
-                super(props)
-                this.state={isHot:true}   //初始化状态
-                this.show=this.show.bind(this)  //改变this指向call  apply  bind
-            }
+            state={isHot:true}
             render(){
                 const {isHot}=this.state
                 return <h2 onClick={this.show}>今天天气很{isHot?'炎热':'凉爽'}</h2>
