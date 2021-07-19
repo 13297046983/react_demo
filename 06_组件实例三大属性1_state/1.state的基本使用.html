@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>state的基本使用</title>
+     <!-- 引入react核心库 -->
+     <script src="https://cdn.staticfile.org/react/17.0.0/umd/react.development.js"></script>
+     <!-- 引入react-dom虚拟库来操作真实DOM -->
+     <script src="https://cdn.staticfile.org/react-dom/17.0.0/umd/react-dom.development.js"></script>
+     <!-- 引入Babel 将jsx转化为js -->
+     <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <!-- 容器 -->
+    <div id="test"></div>
+
+    <script type="text/babel">
+        // 定义组件（类式组件）
+        class Weather extends React.Component{
+            constructor(props){
+                super(props)
+                this.state={isHot:true}   //初始化状态
+                this.show=this.show.bind(this)  //改变this指向call  apply  bind
+            }
+            render(){
+                const {isHot}=this.state
+                return <h2 onClick={this.show}>今天天气很{isHot?'炎热':'凉爽'}</h2>
+            }
+            show(){
+                this.state.isHot=false
+        }   
+        }
+        // 喧嚷组件到页面
+        ReactDOM.render(<Weather/>,document.getElementById('test'));
+        
+    </script>
+</body>
+</html>
